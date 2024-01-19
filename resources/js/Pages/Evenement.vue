@@ -18,7 +18,7 @@ defineProps({
             </h2>
         </template>
 
-        <div class="flex pl-32 pr-32 mt-16 flex-wrap gap-24 justify-center">
+        <div class="flex pl-16 pr-16 mt-16 flex-wrap gap-8 justify-center">
             <div v-for="event in events">
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
