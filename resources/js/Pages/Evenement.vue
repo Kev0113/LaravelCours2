@@ -40,7 +40,7 @@ defineProps({
                             type="button"
                             data-ripple-light="true"
                         >
-                            Read More
+                            Lire plus..
                         </button>
                     </div>
                 </div>
