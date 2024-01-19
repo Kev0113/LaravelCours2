@@ -27,6 +27,7 @@ class EventFactory extends Factory
             'user_id' => User::all()->random()->id,
             'category_id' => User::all()->random()->id,
             'price' => $this->faker->randomNumber(),
+            'thumbnail'=> 'toto'
         ];
     }
 }

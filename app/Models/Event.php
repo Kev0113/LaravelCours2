@@ -20,7 +20,8 @@ class Event extends Model
         'is_public',
         'price',
         'user_id',
-        'category_id'
+        'category_id',
+        'thumbnail'
     ];
 
     public function user(): BelongsTo

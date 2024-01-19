@@ -46,7 +46,7 @@ class EventResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->numeric()
                     ->required(),
-                Forms\Components\FileUpload::make('medias')
+                Forms\Components\FileUpload::make('thumbnail')
                     ->multiple()
                     ->disk('public')
                     ->directory('img')

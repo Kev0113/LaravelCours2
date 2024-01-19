@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_public');
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnDelete();
+            $table->string("thumbnail");
             $table->timestamps();
         });
     }
