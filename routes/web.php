@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,7 +32,11 @@ Route::get('/', function () {
 //    ]);
 //})->name('event');
 
-Route::get('/event', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
+
+Route::prefix('/event')->group(function(){
+    Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
+    Route::get('/{id}', [EventsController::class, 'getEvent'])->name('getEvent');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -42,3 +47,4 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+

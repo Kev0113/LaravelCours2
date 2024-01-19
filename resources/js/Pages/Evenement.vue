@@ -35,13 +35,15 @@ defineProps({
                         <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased" v-text="event.content"></p>
                     </div>
                     <div class="p-6 pt-0 mt-auto">
-                        <button
-                            class="select-none rounded-lg bg-[#818CF8] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                            type="button"
-                            data-ripple-light="true"
-                        >
-                            Lire plus..
-                        </button>
+                        <a :href="route('getEvent', {'id': event.id})">
+                            <button
+                                class="select-none rounded-lg bg-[#818CF8] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                type="button"
+                                data-ripple-light="true"
+                            >
+                                Lire plus..
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
