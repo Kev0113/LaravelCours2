@@ -24,12 +24,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/event', function (){
-    return Inertia::render('Evenement', [
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('event');
+//Route::get('/event', function (){
+//    return Inertia::render('Evenement', [
+//        'laravelVersion' => Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
+//})->name('event');
+
+Route::get('/event', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
 
 Route::middleware([
     'auth:sanctum',
