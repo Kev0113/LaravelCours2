@@ -47,7 +47,6 @@ class EventResource extends Resource
                     ->numeric()
                     ->required(),
                 Forms\Components\FileUpload::make('thumbnail')
-                    ->multiple()
                     ->disk('public')
                     ->directory('img')
                     ->visibility('private'),
