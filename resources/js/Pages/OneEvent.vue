@@ -14,7 +14,13 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                 {{ event.title }}
             </h2>
         </template>
-        
+        <section>
+            <div class="container px-16 mx-auto">
+                <div class="grid grid-cols-4">
+
+                </div>
+            </div>
+        </section>
     </AppLayout>
 </template>
 
