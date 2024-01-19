@@ -32,4 +32,10 @@ class Event extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function event(): BelongsTo
+    {
+        return $this->belongsTo(Event::class);
+    }
+
 }

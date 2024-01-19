@@ -46,6 +46,11 @@ class EventResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->numeric()
                     ->required(),
+                Forms\Components\FileUpload::make('medias')
+                    ->multiple()
+                    ->disk('public')
+                    ->directory('img')
+                    ->visibility('private'),
                 Forms\Components\Checkbox::make('is_public')
                     ->label('Événement privé'),
                 ]);

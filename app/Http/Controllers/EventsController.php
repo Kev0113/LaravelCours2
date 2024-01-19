@@ -15,10 +15,7 @@ class EventsController extends Controller
         ]);
     }
 
-    public function getEvent($eventId){
-        $event = Event::findOrFail($eventId);
-        return Inertia::render('OneEvent', [
-                'event' => $event
-        ]);
+    public function getEvent(Event $event){
+        return Inertia::render('OneEvent', ['event' => $event]);
     }
 }
