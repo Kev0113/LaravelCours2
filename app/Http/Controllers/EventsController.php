@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -16,6 +17,7 @@ class EventsController extends Controller
     }
 
     public function getEvent(Event $event){
-        return Inertia::render('OneEvent', ['event' => $event]);
+        $get_category = Category::findOrFail($event->category_id);
+        return Inertia::render('OneEvent', ['event' => $event, 'category' => $get_category ]);
     }
 }
