@@ -6,6 +6,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
     events: [],
+    storagePath: '',
 });
 
 </script>
@@ -23,8 +24,7 @@ defineProps({
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                         <img
-                            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            alt="img-blur-shadow"
+                            :src="storagePath + '/' + event.thumbnail"
                             layout="fill"
                         />
                     </div>
