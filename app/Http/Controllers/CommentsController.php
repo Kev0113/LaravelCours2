@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentsPostRequest;
+use App\Models\Comment;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -21,16 +24,15 @@ class CommentsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create(CommentsPostRequest $request, $eventId)
     {
-        $validated = $request->validate([
-            'message' => 'required | min : 3 | max: 255'
-        ]);
+        $user = $request->user();
 
-
-
-        dd($validated);
-        dd($request);
+        $setComment = new Comment();
+        $setComment->comment = $request->input('message');
+        $setComment->user()->associate($user);
+        $setComment->event()->associate(Event::findOrFail($eventId));
+        $setComment->save();
     }
 
     /**

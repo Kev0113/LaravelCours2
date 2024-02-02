@@ -41,7 +41,7 @@ Route::prefix('/event')->group(function(){
 });
 
 Route::prefix('/comments')->group(function (){
-   Route::post('/create', [CommentsController::class, 'create'])->name('addComment');
+   Route::post('/create/{x}', [CommentsController::class, 'create'])->name('addComment');
 });
 
 Route::middleware([
