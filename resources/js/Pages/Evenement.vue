@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { router } from '@inertiajs/vue3'
+import FilterEvent from "@/Components/FilterEvent.vue";
 
 defineProps({
     events: [],
@@ -23,24 +24,18 @@ function participate(eventId) {
             </h2>
         </template>
 
-        <div v-if="$page.props.flash.success" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-green-300 text-green-700 cursor-pointer shadow-md z-50" @click="$page.props.flash.success = null">
-            {{ $page.props.flash.success }}
-        </div>
-
-        <div v-if="$page.props.flash.error" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-red-300 text-red-700 cursor-pointer shadow-md z-50" @click="$page.props.flash.error = null">
-            {{ $page.props.flash.error }}
-        </div>
+        <FilterEvent></FilterEvent>
 
         <div class="flex pl-16 pr-16 mt-16 flex-wrap gap-8 justify-center">
             <div v-for="event in events">
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-<!--                        <img-->
-<!--                            :src="storagePath + event.thumbnail"-->
-<!--                            layout="fill"-->
-<!--                            @click="console.log($page.props.flash.success)"-->
-<!--                        />-->
-                        <img :src="storagePath" alt="">
+                        <img
+                            :src="storagePath + event.thumbnail"
+                            layout="fill"
+                            @click="console.log($page.props.flash.success)"
+                        />
+<!--                        <img :src="storagePath" alt="">-->
                     </div>
                     <div class="p-6">
                         <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
