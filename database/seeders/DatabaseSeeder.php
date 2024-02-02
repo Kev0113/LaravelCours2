@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Event;
+use App\Models\EventToUser;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
