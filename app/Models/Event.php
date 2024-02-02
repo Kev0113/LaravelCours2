@@ -44,7 +44,7 @@ class Event extends Model
     protected function startingDate(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $value ? (new DateTime($value))->format('d-m-Y') : null,
+            get: fn ($value) => $value ? (new DateTime($value))->format('d/m/Y') : null,
         );
     }
 

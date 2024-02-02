@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,21 +17,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+Route::get('/', HomeController::class);
+
+Route::get('/event', function (){
+    return Inertia::render('Evenement', [
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
-
-//Route::get('/event', function (){
-//    return Inertia::render('Evenement', [
-//        'laravelVersion' => Application::VERSION,
-//        'phpVersion' => PHP_VERSION,
-//    ]);
-//})->name('event');
+})->name('event');
 
 
 Route::prefix('/event')->group(function(){

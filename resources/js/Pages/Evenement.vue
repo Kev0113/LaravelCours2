@@ -1,18 +1,17 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { router } from '@inertiajs/vue3'
-import { ref } from "vue";
 
 defineProps({
     events: [],
     storagePath: '',
     flash: Object,
+    links: Object
 });
 
 function participate(eventId) {
-    router.post('/event/participate', {'eventId': eventId})
+    router.post('/event/participate', {'eventId': eventId});
 }
-
 
 </script>
 
@@ -71,8 +70,14 @@ function participate(eventId) {
                     </div>
                 </div>
             </div>
-        </div>
+            <inertia-link v-if="$page.props.events.prev_page_url" :href="$page.props.events.prev_page_url">
+                Précédent
+            </inertia-link>
 
+            <inertia-link v-if="$page.props.events.next_page_url" :href="$page.props.events.next_page_url">
+                Suivant
+            </inertia-link>
+        </div>
     </AppLayout>
 </template>
 
