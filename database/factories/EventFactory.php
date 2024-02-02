@@ -20,7 +20,7 @@ class EventFactory extends Factory
         return[
             'title' => $this->faker->name(),
             'content' => $this->faker->paragraph(),
-            'starting_date' => $this->faker->dateTimeThisCentury(),
+            'starting_date' => $this->faker->dateTimeInInterval('-1 years', '+10 years'),
             'ending_date' => $this->faker->dateTimeThisCentury(),
             'tags' => $this->faker->word(),
             'is_public' => $this->faker->boolean(),
