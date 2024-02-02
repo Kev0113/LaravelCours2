@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\EventToUser;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

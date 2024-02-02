@@ -36,6 +36,7 @@ Route::get('/', function () {
 Route::prefix('/event')->group(function(){
     Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('getEvent');
+    Route::post('/participate', [EventsController::class, 'participate'])->name('participate');
 });
 
 Route::middleware([
