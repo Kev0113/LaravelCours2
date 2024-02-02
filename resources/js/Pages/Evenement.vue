@@ -36,11 +36,12 @@ function participate(eventId) {
             <div v-for="event in events">
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                        <img
-                            :src="storagePath + event.thumbnail"
-                            layout="fill"
-                            @click="console.log($page.props.flash.success)"
-                        />
+<!--                        <img-->
+<!--                            :src="storagePath + event.thumbnail"-->
+<!--                            layout="fill"-->
+<!--                            @click="console.log($page.props.flash.success)"-->
+<!--                        />-->
+                        <img :src="storagePath" alt="">
                     </div>
                     <div class="p-6">
                         <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">

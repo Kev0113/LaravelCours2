@@ -13,6 +13,10 @@
     const form = useForm({
         message : null,
     })
+
+    function participate(eventId) {
+        router.post('/event/participate', {'eventId': event.id})
+    }
 </script>
 
 <template>
@@ -30,7 +34,7 @@
                 <div class="w-[450px] h-[450px] ml-auto">
                     <img alt="..." class="w-full h-full object-cover rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80">
                 </div>
-                <div class="w-full md:w-5/12 ml-auto mr-auto px-4 mt-5">
+                <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
                     <div class="md:pr-12">
                         <div class="flex items-center gap-x-5">
                             <div class="text-[#6875F5] p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-[#6875F5] mt-8">
@@ -82,6 +86,17 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <form @submit.prevent="participate(event.id)">
+                                <button
+                                    type="submit"
+                                    class="select-none rounded-lg bg-[#818CF8] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md transition-all hover:bg-[#6d77d7] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    data-ripple-light="true"
+                                    @click="console.log(event)"
+                                >
+                                    Participer
+                                </button>
+                            </form>
                         </ul>
                     </div>
                 </div>
