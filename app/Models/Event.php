@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use DateTime;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Date;
 
 class Event extends Model
 {
@@ -37,5 +40,19 @@ class Event extends Model
     public function users(){
         return $this->belongsToMany(User::class);
     }
+
+    protected function startingDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? (new DateTime($value))->format('d-m-Y') : null,
+        );
+    }
+
+
+//    public function getTitle($value)
+//    {
+//        return ucfirst('testrtrt');
+////        return ucfirst($value->format('d/m/Y'));
+//    }
 
 }
