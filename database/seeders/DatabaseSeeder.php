@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -19,9 +20,6 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         Category::factory(50)->create();
         Event::factory(100)->create();
-
-//        this->call([
-//            EventSeeder::class
-//        ]);
+        Comment::factory(200)->create();
     }
 }

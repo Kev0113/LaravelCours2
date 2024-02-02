@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\EventsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,10 @@ Route::get('/', function () {
 Route::prefix('/event')->group(function(){
     Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('getEvent');
+});
+
+Route::prefix('/comments')->group(function (){
+   Route::post('/create', [CommentsController::class, 'create'])->name('addComment');
 });
 
 Route::middleware([
