@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -18,6 +19,8 @@ class HomeController extends Controller
     {
         $nextEvents = Event::where('starting_date', '>', date('Y-m-d'))->orderBy('starting_date', 'asc')->limit(5)->get();
 
+        $popularCategories = Category::with('events')->with('events.users')->limit(3)->get();
+
         $storagePath = Storage::disk('public')->url('');
 
         return Inertia::render('Welcome', [
@@ -26,7 +29,8 @@ class HomeController extends Controller
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'storagePath' => $storagePath,
-        'nextEvents' => $nextEvents
+        'nextEvents' => $nextEvents,
+        'popularCategories' => $popularCategories
     ]);
     }
 }

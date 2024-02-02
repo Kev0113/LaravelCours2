@@ -7,7 +7,8 @@ defineProps({
     laravelVersion: String,
     phpVersion: String,
     nextEvents: Object,
-    storagePath: ''
+    storagePath: '',
+    popularCategories: Object
 });
 </script>
 
@@ -68,6 +69,17 @@ defineProps({
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-16 container px-16 mx-auto">
+        <h1 class="text-4xl font-bold">
+            Les catégories les plus connues
+        </h1>
+        <div class="grid grid-cols-4 gap-12">
+            <div v-for="category in popularCategories" class="self-stretch my-4">
+                <div class="rounded-md bg-blue-400 p-4 text-white cursor-pointer hover:bg-blue-500">{{ category.name }}</div>
             </div>
         </div>
     </div>
