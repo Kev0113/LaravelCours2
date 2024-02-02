@@ -41,6 +41,12 @@ class Event extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
     protected function startingDate(): Attribute
     {
         return Attribute::make(

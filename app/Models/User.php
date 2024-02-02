@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Event::class);
     }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

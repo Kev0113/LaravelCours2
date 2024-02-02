@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
@@ -31,6 +32,10 @@ Route::prefix('/event')->group(function(){
     Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('getEvent');
     Route::post('/participate', [EventsController::class, 'participate'])->name('participate');
+});
+
+Route::prefix('/comments')->group(function (){
+   Route::post('/create/{x}', [CommentsController::class, 'create'])->name('addComment');
 });
 
 Route::middleware([
