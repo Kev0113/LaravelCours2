@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ParticipantsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,8 +32,8 @@ Route::get('/event', function (){
 
 Route::prefix('/event')->group(function(){
     Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
-    Route::get('/{event}', [EventsController::class, 'getEvent'])->name('getEvent');
-    Route::post('/participate', [EventsController::class, 'participate'])->name('participate');
+    Route::get('/{event}', [EventsController::class, 'show'])->name('getEvent');
+    Route::post('/participate', [ParticipantsController::class, 'create'])->name('participate');
     Route::post('/filter', [FilterController::class, 'index'])->name('filter');
 });
 

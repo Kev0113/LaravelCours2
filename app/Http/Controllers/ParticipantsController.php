@@ -1,35 +1,41 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Validator;
 
-class EventsController extends Controller
+class ParticipantsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $getEvent = Event::whereBetween('price', [0, 10000])
-            ->orderBy('price', 'ASC')
-            ->get();
-
-        $storagePath = Storage::disk('public')->url('');
-        return Inertia::render('Evenement', [
-            'events' => $getEvent,
-            'storagePath' => $storagePath,
-        ]);
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validation = Validator::make($request->all(), [
+            'eventId' => 'required|numeric|exists:events,id'
+        ]);
+
+        if ($validation->validated()){
+            $user = $request->user();
+
+            if ($user->events->contains($request->input('eventId'))){
+                return redirect()->back()->with('error', 'Vous êtes déjà insrit(e) pour cet événement');
+            }
+
+            $user->events()->attach($request->input('eventId'));
+
+            return redirect()->back()->with('success', 'Votre participation a bien été prise en compte');
+
+        }
     }
 
     /**
@@ -43,12 +49,9 @@ class EventsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Event $event)
+    public function show(string $id)
     {
-        $event->load('category');
-        $event->load('user');
-        $event->comments->load('user');
-        return Inertia::render('OneEvent', ['event' => $event, 'comments' => $event->comments]);
+        //
     }
 
     /**
@@ -75,4 +78,3 @@ class EventsController extends Controller
         //
     }
 }
-
