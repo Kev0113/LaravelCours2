@@ -14,7 +14,10 @@ use Inertia\Inertia;
 class EventsController extends Controller
 {
     public function index(){
-        $getEvent = Event::all();
+        $getEvent = Event::whereBetween('price', [0, 10000])
+            ->orderBy('price', 'ASC')
+            ->get();
+
         $storagePath = Storage::disk('public')->url('');
         return Inertia::render('Evenement', [
            'events' => $getEvent,

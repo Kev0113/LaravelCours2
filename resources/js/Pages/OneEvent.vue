@@ -13,10 +13,6 @@
     const form = useForm({
         message : null,
     })
-
-    function participate(eventId) {
-        router.post('/event/participate', {'eventId': event.id})
-    }
 </script>
 
 <template>
@@ -119,7 +115,7 @@
                 <form @submit.prevent="form.post('/comments/create/'+event.id)" class="relative flex flex-col h-10 w-full min-w-[200px] max-w-[24rem]">
                     <div>
                         <button
-                            class="!absolute right-1 top-1 z-10 select-none rounded bg-[#6875F5] py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-blue-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none"
+                            class="!absolute right-1 top-1 z-10 select-none rounded bg-[#6875F5] py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-[#545454] focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none peer-placeholder-shown:pointer-events-none peer-placeholder-shown:bg-blue-gray-500 peer-placeholder-shown:opacity-50 peer-placeholder-shown:shadow-none"
                             type="submit"
                             data-ripple-light="true"
                         >

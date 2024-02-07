@@ -42,6 +42,10 @@ function participate(eventId) {
                             <p v-text="event.title"></p>
                         </h5>
                         <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased" v-text="event.content"></p>
+                        <div>
+                            <p class="text-gray-400" v-text=" 'Prix d\'entrée : ' +  event.price + ' €'"></p>
+                            <p class="text-gray-400" v-text=" 'Nombre de participant(s) : ' +  event.price"></p>
+                        </div>
                     </div>
                     <div class="p-6 pt-0 mt-auto gap-x-4 flex">
                         <a :href="route('getEvent', event)">

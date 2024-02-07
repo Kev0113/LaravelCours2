@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\FilterController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,11 +33,17 @@ Route::prefix('/event')->group(function(){
     Route::get('/', [\App\Http\Controllers\EventsController::class, 'index'])->name('event');
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('getEvent');
     Route::post('/participate', [EventsController::class, 'participate'])->name('participate');
+    Route::post('/filter', [FilterController::class, 'index'])->name('filter');
 });
 
 Route::prefix('/comments')->group(function (){
    Route::post('/create/{x}', [CommentsController::class, 'create'])->name('addComment');
 });
+
+//Route::prefix('/filter')->group(function(){
+//   Route::post('/name', [FilterController::class, 'index'])->name('filter');
+//});
+
 
 Route::middleware([
     'auth:sanctum',
