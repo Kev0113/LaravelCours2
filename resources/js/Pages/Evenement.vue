@@ -70,13 +70,13 @@ function participate(eventId) {
                     </div>
                 </div>
             </div>
-            <inertia-link v-if="$page.props.events.prev_page_url" :href="$page.props.events.prev_page_url">
-                Précédent
-            </inertia-link>
+            <div v-if="$page.props.flash.success" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-green-300 text-green-700 cursor-pointer shadow-md z-50" @click="$page.props.flash.success = null">
+                {{ $page.props.flash.success }}
+            </div>
 
-            <inertia-link v-if="$page.props.events.next_page_url" :href="$page.props.events.next_page_url">
-                Suivant
-            </inertia-link>
+            <div v-if="$page.props.flash.error" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-red-300 text-red-700 cursor-pointer shadow-md z-50" @click="$page.props.flash.error = null">
+                {{ $page.props.flash.error }}
+            </div>
         </div>
     </AppLayout>
 </template>

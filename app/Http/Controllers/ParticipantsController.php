@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendConfirmMail;
+use App\Models\Event;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,7 +34,18 @@ class ParticipantsController extends Controller
                 return redirect()->back()->with('error', 'Vous êtes déjà insrit(e) pour cet événement');
             }
 
-            $user->events()->attach($request->input('eventId'));
+            try{
+
+                $user->events()->attach($request->input('eventId'));
+                dispatch(new SendConfirmMail(auth()->user(), Event::findOrFail((int) $request->input('eventId'))));
+
+            }catch(Exception $e){
+                die($e);
+
+            }
+
+
+
 
             return redirect()->back()->with('success', 'Votre participation a bien été prise en compte');
 
