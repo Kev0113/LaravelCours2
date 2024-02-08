@@ -13,9 +13,9 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $getEvent = Event::whereBetween('price', [0, 10000])
+        $getEvent = Event::whereBetween('price', [0, 1000000])
             ->orderBy('price', 'ASC')
-            ->get();
+            ->paginate(12);
 
         $storagePath = Storage::disk('public')->url('');
         return Inertia::render('Evenement', [

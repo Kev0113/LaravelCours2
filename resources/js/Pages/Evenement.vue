@@ -2,6 +2,7 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { router } from '@inertiajs/vue3'
 import FilterEvent from "@/Components/FilterEvent.vue";
+import PaginationEvent from "@/Components/PaginationEvent.vue";
 
 defineProps({
     events: [],
@@ -27,7 +28,7 @@ function participate(eventId) {
         <FilterEvent></FilterEvent>
 
         <div class="flex pl-16 pr-16 mt-16 flex-wrap gap-8 justify-center">
-            <div v-for="event in events">
+            <div v-for="event in events.data" @click="console.log(events)">
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                         <img
@@ -70,14 +71,10 @@ function participate(eventId) {
                     </div>
                 </div>
             </div>
-            <inertia-link v-if="$page.props.events.prev_page_url" :href="$page.props.events.prev_page_url">
-                Précédent
-            </inertia-link>
-
-            <inertia-link v-if="$page.props.events.next_page_url" :href="$page.props.events.next_page_url">
-                Suivant
-            </inertia-link>
         </div>
+
+        <PaginationEvent :events="events"></PaginationEvent>
+
     </AppLayout>
 </template>
 

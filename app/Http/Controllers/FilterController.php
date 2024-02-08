@@ -22,7 +22,7 @@ class FilterController extends Controller
             })
             ->whereBetween('price', [$request->input('minPrice'), $request->input('maxPrice')])
             ->orderBy('price', $request->input('orderBy'))
-            ->get();
+            ->paginate(12);
 
 
 
