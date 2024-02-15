@@ -45,7 +45,7 @@ function participate(eventId) {
                         <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased" v-text="event.content"></p>
                         <div>
                             <p class="text-gray-400" v-text=" 'Prix d\'entrée : ' +  event.price + ' €'"></p>
-                            <p class="text-gray-400" v-text=" 'Nombre de participant(s) : ' +  event.price"></p>
+                            <p class="text-gray-400" v-text=" 'Nombre de participant(s) : ' +  event.users_count"></p>
                         </div>
                     </div>
                     <div class="p-6 pt-0 mt-auto gap-x-4 flex">

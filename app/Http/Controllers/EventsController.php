@@ -14,6 +14,7 @@ class EventsController extends Controller
     public function index()
     {
         $getEvent = Event::whereBetween('price', [0, 1000000])
+            ->withCount('users')
             ->orderBy('price', 'ASC')
             ->paginate(12);
 
@@ -47,7 +48,9 @@ class EventsController extends Controller
     {
         $event->load('category');
         $event->load('user');
+        $event->loadCount('users');
         $event->comments->load('user');
+        $event->load('opinion')
         return Inertia::render('OneEvent', ['event' => $event, 'comments' => $event->comments]);
     }
 
