@@ -50,7 +50,7 @@ class EventsController extends Controller
         $event->load('user');
         $event->loadCount('users');
         $event->comments->load('user');
-        $event->load('opinion')
+        $event->load('opinion');
         return Inertia::render('OneEvent', ['event' => $event, 'comments' => $event->comments]);
     }
 
