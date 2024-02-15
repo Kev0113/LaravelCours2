@@ -36,6 +36,7 @@ Route::prefix('/event')->group(function(){
     Route::get('/{event}', [EventsController::class, 'show'])->name('getEvent');
     Route::post('/participate', [ParticipantsController::class, 'create'])->name('participate');
     Route::post('/filter', [FilterController::class, 'index'])->name('filter');
+    Route::get('/delete/{event}', [EventsController::class, 'destroy'])->name('deleteEvent');
 });
 
 Route::prefix('/comments')->group(function (){
