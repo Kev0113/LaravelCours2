@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnDelete();
             $table->string("thumbnail");
+            $table->boolean('reminder_sent')->default(false);
             $table->timestamps();
         });
     }
