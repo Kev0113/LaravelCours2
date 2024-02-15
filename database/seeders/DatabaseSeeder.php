@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Event;
 use App\Models\EventToUser;
+use App\Models\Opinion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(50)->create();
         Event::factory(100)->create();
         Comment::factory(200)->create();
+        Opinion::factory(450)->create();
     }
 }

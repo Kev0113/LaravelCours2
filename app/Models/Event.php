@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Date;
 
@@ -46,7 +47,6 @@ class Event extends Model
         return $this->hasMany(Comment::class);
     }
 
-
     protected function startingDate(): Attribute
     {
         return Attribute::make(
@@ -54,11 +54,8 @@ class Event extends Model
         );
     }
 
-
-//    public function getTitle($value)
-//    {
-//        return ucfirst('testrtrt');
-////        return ucfirst($value->format('d/m/Y'));
-//    }
-
+    public function opinions(): hasMany
+    {
+        return $this->hasMany(Opinion::class);
+    }
 }
