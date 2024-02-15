@@ -19,7 +19,8 @@ class HomeController extends Controller
     {
         $nextEvents = Event::where('starting_date', '>', date('Y-m-d'))->orderBy('starting_date', 'asc')->limit(5)->get();
 
-        $popularCategories = Category::with('events')->with('events.users')->limit(3)->get();
+        $popularCategories = Category::with('events')->with('events.users')->limit(5)->get();
+//        dd(count($popularCategories));
 
         $storagePath = Storage::disk('public')->url('');
 

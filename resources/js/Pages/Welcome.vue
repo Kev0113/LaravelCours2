@@ -24,14 +24,19 @@ defineProps({
         </template>
     </div>
 
-    <div class="mt-16 container px-16 mx-auto">
-        <h1 class="text-4xl font-bold">
-            Les prochains évènements
-        </h1>
-        <div class="grid grid-cols-3 gap-12">
+
+    <section class="mb-64">
+        <div class="gap-8 mt-16 ml-36">
+            <h1 class="text-4xl font-bold">
+                Les prochains évènements
+            </h1>
+        </div>
+
+        <div class="flex pl-16 pr-16 mt-8 flex-wrap gap-8 justify-center">
             <div v-for="event in nextEvents" class="self-stretch">
                 <div class="relative flex w-96 flex-col rounded-xl min-h-[500px] bg-white bg-clip-border text-gray-700 shadow-md mt-10 h-full">
                     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+<!--                        <img src="/storage/img/01HMH6M41M1G3D5QM7ZZAGEFJA.jpg" alt="">-->
                         <img
                             :src="storagePath + event.thumbnail"
                             layout="fill"
@@ -57,7 +62,7 @@ defineProps({
                                 Lire plus..
                             </button>
                         </a>
-                        <form @submit.prevent="participate(event.id)">
+                        <form v-if="$page.props.auth.user" @submit.prevent="participate(event.id)">
                             <button
                                 type="submit"
                                 class="select-none rounded-lg bg-[#818CF8] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md transition-all hover:bg-[#6d77d7] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -71,7 +76,7 @@ defineProps({
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="mt-16 container px-16 mx-auto">
         <h1 class="text-4xl font-bold">

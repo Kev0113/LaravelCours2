@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -10,10 +11,12 @@ class MyEventsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('MyEvents', [
+        $getMyAdminEvents = Event::where('user_id',$request->user()->id)->get();
 
+        return Inertia::render('MyEvents', [
+            'adminEvents' => $getMyAdminEvents
         ]);
     }
 
