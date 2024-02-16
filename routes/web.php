@@ -5,6 +5,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyEventsController;
+use App\Http\Controllers\OpinionsController;
 use App\Http\Controllers\ParticipantsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,10 @@ Route::prefix('/event')->group(function(){
 
 Route::prefix('/comments')->group(function (){
    Route::post('/create/{x}', [CommentsController::class, 'create'])->name('addComment');
+});
+
+Route::prefix('/opinions')->group(function(){
+   Route::post('/create/{x}', [OpinionsController::class, 'create'])->name('addOpinion');
 });
 
 Route::prefix('/my-events')->group(function (){

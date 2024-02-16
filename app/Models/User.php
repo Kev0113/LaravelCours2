@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Event::class);
     }
 
+    public function opinion(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);

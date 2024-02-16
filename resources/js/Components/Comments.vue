@@ -2,6 +2,7 @@
     import {useForm} from "@inertiajs/vue3";
 
     defineProps({
+        event: [],
         comments: [],
     });
 
@@ -12,18 +13,16 @@
 
 <template>
     <section class="mt-16 ml-56">
-<!--        <h3 class="text-3xl font-semibold mb-8">Commentaire ({{comments.length}})</h3>-->
+        <h3 class="text-3xl font-semibold mb-8">Commentaire ({{comments.length}})</h3>
         <!-- component -->
 
         <div v-for="comment in comments">
             <div class="mb-3">
-                <p>hur_efgh</p>
                 <p><b>{{ comment.user.name }}</b> : {{comment.comment}}</p>
                 <p class="text-gray-500">Le {{ comment.created_at }}</p>
             </div>
         </div>
 
-        <!--            <div class="relative flex h-10 w-full min-w-[200px] max-w-[24rem]">-->
         <form @submit.prevent="form.post('/comments/create/'+event.id)" class="relative flex flex-col h-10 w-full min-w-[200px] max-w-[24rem]">
             <div>
                 <button

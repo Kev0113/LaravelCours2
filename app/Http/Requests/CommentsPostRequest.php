@@ -22,14 +22,15 @@ class CommentsPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'message' => 'required|max:255'
+            'message' => 'required|max:500'
         ];
     }
 
     public function messages()
     {
         return [
-            'message.required' => "Vous n'avez pas rempli le champ message"
+            'message.required' => "Vous n'avez pas rempli le champ message",
+            'message.max' => "Vous commentaire doit faire moins de 500 caracteres"
         ];
     }
 }
