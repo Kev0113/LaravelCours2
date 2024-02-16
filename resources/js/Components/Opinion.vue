@@ -73,7 +73,12 @@
             </div>
         </form>
 
-
+        <div v-if="form.errors.opinion" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-red-300 text-red-700 cursor-pointer shadow-md z-50" @click="form.errors.opinion = null">
+            {{ form.errors.opinion }}
+        </div>
+        <div v-if="form.errors.rate" class=" fixed bottom-8 right-8 rounded-lg p-4 bg-red-300 text-red-700 cursor-pointer shadow-md z-50" @click="form.errors.rate = null">
+            {{ form.errors.rate }}
+        </div>
     </section>
 </template>
 

@@ -79,7 +79,7 @@
                                         <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-[#6875F5] mr-3"><i class='bx bxs-group text-white' ></i></span>
                                     </div>
                                     <div>
-                                        <h4 class="text-blueGray-500"> 5 participants</h4>
+                                        <h4 class="text-blueGray-500"> {{ event.users_count }} participants</h4>
                                     </div>
                                 </div>
                             </li>
