@@ -1,0 +1,17 @@
+HESPELLE Hugo
+LEGRAND Kevin
+
+Quelques informations :
+
+Les filtres ont été créés avant l'énoncé, ils sont donc basés sur des tables / champs différents.
+
+Les images n'apparaissent pas avec un seed, car nous n'en avons pas de base.
+
+Le mail de confirmation fonctionne bien (à tester avec un mailer local)
+Le mail de rappel fonctionne également
+
+L'affichage, l'ajout, la suppression et l'édition d'un évènement fonctionne correctement
+
+La participation fonctionne également
+
+Les commentaires & avis fonctionnent
